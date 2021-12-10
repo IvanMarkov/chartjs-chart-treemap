@@ -45,8 +45,8 @@ function drawCaption(ctx, rect, item, opts, levels) {
   ctx.fillStyle = opts.color;
   let relWidth = rect.width / opts.font.size;
   if (relWidth < opts.font.size && relWidth < 8) {
-    opts.font.size = Math.ceil(relWidth) * 1.75;
-    opts.font.lineHeight = Math.ceil(relWidth) * 1.75;
+    opts.font.size = Math.ceil(relWidth) * 1.5;
+    opts.font.lineHeight = Math.ceil(relWidth) * 1.5;
     opts.font.string = `${opts.font.style} ${opts.font.size}px ${opts.font.family}`;
   }
   ctx.font = opts.font.string;
@@ -215,7 +215,7 @@ function calculateXYLabel(options, rect, labels, lineHeight) {
       borderWidth -
       (labels.length - 1) * lineHeight;
   } else {
-    y = rect.y + rect.height / 2 - (labels.length * lineHeight) / 4;
+    y = rect.y + rect.height / 2 - (labels.length * lineHeight) / 2;
   }
   return { x, y };
 }
