@@ -71,8 +71,8 @@ function drawCaptionLabel(ctx, item, rect) {
   ctx.fillStyle = color;
   let relWidth = rect.width / opts.font.size;
   if (relWidth < opts.font.size && relWidth < 8) {
-    opts.font.size = Math.ceil(relWidth) * 1.5;
-    opts.font.lineHeight = Math.ceil(relWidth) * 1.5;
+    opts.font.size = Math.ceil(relWidth) * 1.75;
+    opts.font.lineHeight = Math.ceil(relWidth) * 1.75;
     opts.font.string = `${opts.font.style} ${opts.font.size}px ${opts.font.family}`;
   }
   ctx.font = opts.font.string;
@@ -81,7 +81,7 @@ function drawCaptionLabel(ctx, item, rect) {
   ctx.fillText(
     captionsOpts.formatter || item.g,
     x,
-    rect.y + padding + spacing + font.lineHeight / 2
+    rect.y + padding + spacing + opts.font.lineHeight / 2
   );
 }
 
@@ -197,8 +197,8 @@ function drawLabels(ctx, item, rect) {
     } else {
       let relWidth = rect.width / opts.font.size;
       if (relWidth < opts.font.size && relWidth < 8) {
-        opts.font.size = Math.ceil(relWidth) * 1.5;
-        opts.font.lineHeight = Math.ceil(relWidth) * 1.5;
+        opts.font.size = Math.ceil(relWidth) * 1.75;
+        opts.font.lineHeight = Math.ceil(relWidth) * 1.75;
         opts.font.string = `${opts.font.style} ${opts.font.size}px ${opts.font.family}`;
       }
       ctx.font = opts.font.string;
