@@ -36,14 +36,15 @@ function shouldDrawCaption(rect, font) {
   }
   const w = rect.width || rect.w;
   const h = rect.height || rect.h;
-  const min = font.lineHeight * 2;
+  const min = font.lineHeight * 3;
   return w > min && h > min;
 }
 
 function drawCaption(ctx, rect, item, opts, levels) {
   ctx.save();
   ctx.fillStyle = opts.color;
-  let relWidth = rect.width / opts.font.size;
+  const minDimension = Math.min(rect.width, rect.height);
+  let relWidth = minDimension / opts.font.size;
   if (relWidth < opts.font.size && relWidth < 8) {
     opts.font.size = Math.ceil(relWidth) * 1.5;
     opts.font.lineHeight = Math.ceil(relWidth) * 1.5;
@@ -172,7 +173,8 @@ function drawLabels(ctx, item, rect) {
       const xyPoint = calculateXYLabel(opts, rect, labels, lh);
       labels.forEach((l, i) => ctx.fillText(l, xyPoint.x, xyPoint.y + i * lh));
     } else {
-      let relWidth = rect.width / opts.font.size;
+      const minDimension = Math.min(rect.width, rect.height);
+      let relWidth = minDimension / opts.font.size;
       if (relWidth < opts.font.size && relWidth < 8) {
         opts.font.size = Math.ceil(relWidth) * 1.5;
         opts.font.lineHeight = Math.ceil(relWidth) * 1.5;
